@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLDTIMER</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .subscribe-section {
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 300px;
+            padding: 15px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: rgb(38, 172, 78);
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email === "user" && password === "user") {
+                window.location.href = "pages/index.html";
+            } else {
+                alert("Неправильний логін або пароль.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <section class="subscribe-section">
+        <p>Щоб увійти заповніть поля:</p>
+        <form class="subscribe-form" onsubmit="handleSubmit(event)">
+            <input type="email" id="email" placeholder="Ваша електронна пошта" required>
+            <input type="password" id="password" placeholder="Ваш пароль" required>
+        </form>
+    </section>
+
+    <button onclick="handleSubmit(event)">
+        Увійти
+    </button>
+</body>
+</html>

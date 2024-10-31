@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLDTIMER</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      .slider {
+        position: relative;
+        margin: 0 auto;
+        /* max-height: 40%; */
+      }
+
+      .slider img {/*4 824 x 3 216 */
+        height: 40vw;
+        width: 60vw;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        padding: 16px;
+        color: white;
+        user-select: auto;
+        background-color: rgba(33, 33, 33, 0.8); 
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .prev {
+        left: 20vw;
+      }
+
+      .next {
+        right: 20vw;
+      }
+
+      .prev:hover, .next:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">OLDTIMER</a></li>
+          <li><a href="history.html">Історія</a></li>
+          <li><a href="news.html">Новини</a></li>
+          <li><a href="team.html">Наша команда</a></li>
+          <li><a href="becomeAPart.html">Приєднатись до клубу</a></li>
+          <li><a href="merch.html">Наш мерч</a></li>
+          <li><a href="music.html">Музика</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="slider">
+        <img id="car_image" src="../photos/e28.jpg" alt="Car image">
+      </div>
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </main>
+
+    <section class="subscribe-section">
+      <p>Щоб отримувати електронні листи про наші майбутні виставки підпишіться на розсилку</p>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Ваша електронна пошта" required>
+        <button type="submit">Підписатись</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2017 - 2024 OLDTIMER</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/oldtimer.vn?igsh=MTR5YTc2ODNrbzhyNw==" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://t.me//StarkeKatze" target="_blank">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      let counter = 1; // Start with the first image
+      let carImage = document.querySelector("#car_image");
+
+      // Array of image sources
+      const images = [
+        "../photos/e28.jpg",
+        "../photos/ford-probe.jpg",
+        "../photos/1.jpg",
+        "../photos/2.jpg",
+        "../photos/3.jpg",
+        "https://drive.google.com/uc?export=view&id=1zyFQh6KMRwOt8VgP_mRlJZP4uOeDfS9G",
+        "https://drive.google.com/uc?export=view&id=1Ksp69zpsOqKrOfNvIguPDb7TZwXbwHEh"
+      ];
+
+      // Function to change the image src based on the counter
+      function changeImage() {
+        carImage.src = images[counter];  // Set the src to the next image
+        counter++;  
+        if (counter >= images.length) {  // Reset counter when it exceeds the number of images
+          counter = 0;
+        }
+      }
+
+      // Automatically change image every 5 seconds
+      let interval = setInterval(changeImage, 3000);
+
+      // Function to change image when clicking next or previous
+      function manualChange(n) {
+        clearInterval(interval);  // Stop automatic switching when manually navigating
+        counter = (counter + n + images.length) % images.length;  // Adjust counter
+        carImage.src = images[counter];  // Change the image src
+      }
+
+      // Add event listeners to the buttons
+      document.querySelector('.prev').addEventListener('click', () => manualChange(-1));
+      document.querySelector('.next').addEventListener('click', () => manualChange(1));
+    </script>
+
+  </body>
+</html>

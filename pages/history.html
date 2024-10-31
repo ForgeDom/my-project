@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLDTIMER</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">OLDTIMER</a></li>
+          <li><a href="history.html">Історія</a></li>
+          <li><a href="news.html">Новини</a></li>
+          <li><a href="team.html">Наша команда</a></li>
+          <li><a href="becomeAPart.html">Приєднатись до клубу</a></li>
+          <li><a href="merch.html">Наш мерч</a></li>
+          <li><a href="music.html">Музика</a></li>
+        </ul>
+      </nav>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4nldMhXN0MLhmUiD79pSji?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </header>
+
+    <main>
+      
+    </main>
+    
+
+    <section class="subscribe-section"> 
+      <p>Щоб отримувати електронні листи про наші майбутні виставки підпишіться на розсилку</p>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Ваша електронна пошта" id = 'emailInput' onkeydown=" if (event.key === 'Enter'){ subscribe();}" required>
+        <button type="submit" class = 'submitBtn' onclick="if (subscribed) {unsubscribe();} else {subscribe();}">Підписатись</button>
+      </form>
+      <p class = "Subscribed"></p>
+    </section>
+    
+    <footer>
+      <p>© 2017 - 2024 OLDTIMER</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/oldtimer.vn?igsh=MTR5YTc2ODNrbzhyNw==" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://t.me//StarkeKatze" target="_blank">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </div>
+    </footer>
+    
+    <script>
+      let subscribed = JSON.parse(localStorage.getItem('subscribed')) || false;
+      let email;
+      if (subscribed){
+        document.querySelector(".Subscribed").innerHTML = "Ви успішно підписались на розсилку від клубу OLDTIMER";
+        document.querySelector('.subscribe-form button').textContent = "Відписатись";
+      }
+
+      function subscribe() {
+        event.preventDefault();//to not refresh the page after subscribing
+        const emailEl = document.getElementById("emailInput");
+        if (emailEl.value){
+        const email = emailEl.value;
+        console.log(email);
+        emailEl.value = '';
+
+        subscribed = true;
+        localStorage.setItem('subscribed', JSON.stringify(subscribed));
+        document.querySelector('.subscribe-form button').textContent = 'Відписатись';
+        document.querySelector(".Subscribed").innerHTML = "Ви успішно підписались на розсилку від клубу OLDTIMER";
+        }
+      }
+
+      function unsubscribe () {
+        event.preventDefault();//to not refresh the page after subscribing
+        subscribed = false;
+        localStorage.removeItem('subscribed');
+        document.querySelector('.subscribe-form button').textContent = 'Підписатись';
+        document.querySelector('.Subscribed').innerHTML = "";
+      }
+    </script>
+
+  </body>
+</html>
