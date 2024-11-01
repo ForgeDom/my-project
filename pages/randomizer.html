@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/randomizer.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body class="body">
+    <header>
+        <nav>
+          <ul>
+            <li><a href="#" onclick="loadContent('home')">Home</a></li>
+            <li><a href="#" onclick="loadContent('history')">Історія</a></li>
+            <li><a href="#" onclick="loadContent('news')">Новини</a></li>
+            <li><a href="#" onclick="loadContent('team')">Наша команда</a></li>
+            <li><a href="#" onclick="loadContent('join')">Приєднатись до клубу</a></li>
+            <li><a href="#" onclick="loadContent('merch')">Наш мерч</a></li>
+            <li><a href="#" onclick="loadContent('music')">Музика</a></li>
+          </ul>
+        </nav>
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/playlist/4nldMhXN0MLhmUiD79pSji?utm_source=generator&theme=0"
+          width="100%"
+          height="100"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </header>
+    <div class="containera">
+        <div class="part1">
+            <div class="forma">
+                <div class="grid-item">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="grid-item">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age">
+                </div>
+                <div class="grid-item">
+                    <label for="weight">Weight</label>
+                    <input type="number" id="weight" name="weight">
+                </div>
+                <div class="grid-item">
+                    <label for="zodiac">Zodiac</label>
+                    <input type="text" id="zodiac" name="zodiac">
+                </div>
+                <div class="grid-item">
+                    <label for="fav-genre">Favorite Music Genre</label>
+                    <select id="fav-genre" name="fav-genre">
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="metal">Metal</option>
+                        <option value="country">Country</option>
+                        <option value="jazz">Jazz</option>
+                    </select>
+                </div>
+                <div class="grid-item">
+                    <label for="birth-date">Day of Birth</label>
+                    <input type="date" id="birth-date" name="birth-date">
+                </div>
+                <div class="grid-item button-container">
+                    <button class="butona" id="generate">Generate!</button>
+                </div>
+            </div>
+        </div>
+        <div class="part2">
+            <div class="new-photo">
+                <img src="" alt="">
+                <em><h1></h1></em>
+            </div>
+        </div>
+    </div>
+    <script src="../js/randomizer.js"></script>
+</body>
+</html>
